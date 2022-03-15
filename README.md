@@ -67,6 +67,15 @@ Note: Like [signature_pad](https://github.com/szimek/signature_pad), `fromDataUR
 | `onBegin` | Function | -       | Fired when stroke begin |
 | `onEnd`   | Function | -       | Fired when stroke end   |
 
+## Build and publish
+
+```bash
+cd packages/lib/
+pnpm install
+pnpm build
+npm publish
+```
+
 ## Credits
 
 - [perfect-freehand](https://github.com/steveruizok/perfect-freehand) - Draw perfect pressure-sensitive freehand strokes.
