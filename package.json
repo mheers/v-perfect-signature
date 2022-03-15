@@ -3,16 +3,30 @@
   "private": true,
   "scripts": {
     "lib": "pnpm -C packages/lib",
-    "example": "pnpm -C packages/example",
+    "playground": "pnpm -C apps/web",
     "clean": "rm -rf node_modules && pnpm -r clean"
   },
-  "prettier": {
-    "semi": true,
-    "singleQuote": true
-  },
   "devDependencies": {
-    "@vue/compiler-sfc": "^3.2.31",
+    "@antfu/eslint-config": "^0.18.3",
+    "eslint": "^8.10.0",
+    "lint-staged": "^12.3.5",
+    "simple-git-hooks": "^2.7.0",
     "typescript": "^4.5.3",
     "vue": "^3.2.31"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ],
+  "lint-staged": {
+    "{packages,apps}/**/*.{js,ts,vue,md}": [
+      "eslint --fix"
+    ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
   }
 }
